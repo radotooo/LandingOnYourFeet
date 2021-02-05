@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe('Login-form', () => {
+describe('Login/Form', () => {
   beforeEach(() => {
     cy.visit('');
   });
@@ -24,15 +24,17 @@ describe('Login-form', () => {
   it('should have a register button', () => {
     cy.get('button').contains('Register');
   });
+});
 
-  it('register-form be visible on register button click', () => {
+describe('Register/Form', () => {
+  it('be visible', () => {
+    cy.visit('');
     cy.get('[data-cy=login-form]').then(() => {
       cy.get('.tab-switch-button')
         .contains('Register')
         .click()
-        .then(() => {
-          cy.get('[data-cy=register-form]');
-        });
+        .then('[data-cy=registerr-from]')
+        .should('be.visible');
     });
   });
 });
